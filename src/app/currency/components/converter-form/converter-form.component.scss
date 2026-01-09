@@ -1,0 +1,62 @@
+.converter-title {
+  text-align: center;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.converter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  max-width: 640px;
+  /* controls overall width */
+  margin: 0 auto;
+  /* center on page */
+}
+
+/* ALL fields same width */
+.converter mat-form-field {
+  width: 100%;
+}
+
+/* Date centered and compact */
+.date {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 260px;
+}
+
+.center-spinner {
+  margin: 12px auto;
+  display: block;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.screen-loader {
+  position: fixed; 
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .converter {
+    grid-template-columns: 1fr;
+  }
+
+  .date {
+    width: 100%;
+  }
+}

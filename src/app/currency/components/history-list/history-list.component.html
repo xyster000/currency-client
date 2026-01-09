@@ -1,0 +1,29 @@
+<h2 class="history-title">User History</h2>
+<div class="screen-loader" *ngIf="loading">
+    <mat-progress-spinner diameter="48" mode="indeterminate">
+    </mat-progress-spinner>
+</div>
+<div class="history-scroll">
+    <mat-card class="item" *ngFor="let h of history">
+        <div class="row">
+            <strong>
+                {{ h.fromAmount }} {{ h.fromCurrency }}
+            </strong>
+            →
+            <strong>
+                {{ h.toAmount | number:'1.2-2' }} {{ h.toCurrency }}
+            </strong>
+        </div>
+
+        <div class="dates">
+            <small>
+                Rate date:
+                {{ h.date | date:'mediumDate' }}
+            </small>
+            <small>
+                Saved:
+                {{ h.createdAt | date:'short' }}
+            </small>
+        </div>
+    </mat-card>
+</div>

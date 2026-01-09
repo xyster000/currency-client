@@ -1,0 +1,19 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Converter = top half */
+.converter-card {
+  flex: 0 0 50vh;
+  overflow: auto;
+  border-radius: 0;
+}
+
+/* History = bottom half */
+.history-section {
+  flex: 1;
+  overflow: hidden;
+}

@@ -1,0 +1,44 @@
+<h2 class="converter-title">Currency Converter</h2>
+
+<form class="converter" [formGroup]="form">
+  <div class="screen-loader" *ngIf="loading">
+    <mat-progress-spinner diameter="48" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+  <ng-container *ngIf="!loading">
+    <mat-form-field appearance="outline">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="fromAmount" (input)="onFromAmountChange()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>From currency</mat-label>
+      <mat-select formControlName="fromCurrency" (selectionChange)="recalculateFrom()">
+        <mat-option *ngFor="let c of currencies" [value]="c.code">
+          {{ c.code }} — {{ c.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="toAmount" (input)="onToAmountChange()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>To currency</mat-label>
+      <mat-select formControlName="toCurrency" (selectionChange)="recalculateFrom()">
+        <mat-option *ngFor="let c of currencies" [value]="c.code">
+          {{ c.code }} — {{ c.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="date">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" [max]="today" (dateChange)="onDateChange()" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </ng-container>
+</form>

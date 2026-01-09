@@ -1,0 +1,11 @@
+<div class="page">
+    <button mat-stroked-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Sign Out
+    </button>
+    <mat-card class="converter-card">
+        <app-converter-form (converted)="load()" />
+    </mat-card>
+
+    <app-history-list class="history-section" [history]="history"></app-history-list>
+</div>
