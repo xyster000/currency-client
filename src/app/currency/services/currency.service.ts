@@ -6,7 +6,7 @@ import { BehaviorSubject, finalize, Subject, tap } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class CurrencyService {
     //private api = 'http://localhost:3000/currency';
-    private api = 'currency-server-production.up.railway.app/currency'
+    private api = 'https://currency-server-production.up.railway.app/currency'
     private historyUpdated$ = new Subject<void>();
     private loading$ = new BehaviorSubject<boolean>(false);
     readonly isLoading$ = this.loading$.asObservable();

@@ -7,7 +7,7 @@ import { tap } from "rxjs";
 export class AuthService {
   //private api = 'http://localhost:3000/auth';
 
-  private api = 'currency-server-production.up.railway.app/auth'
+  private api = 'https://currency-server-production.up.railway.app/auth'
 
   constructor(private http: HttpClient, private state: AuthState) { }
 
